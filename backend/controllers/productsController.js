@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const getProducts = async (req, res) => {
     try {
-        const data = await Product.find();
+        const data = await Product.find({ subCategory: req.params.subCategory });
         res.status(200).json({ data });
     } catch (error) {
         res.status(400).json({ message: error.message });
