@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/product' element={<Products />} />
-          <Route path='/productlist' element={<ProductList />} />
+          <Route path='/productlist/:subCategory' element={<ProductList />} />
           <Route path='/fridges' element={<ProductDetail />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/userinfo' element={<ShowUserInfo />} />
