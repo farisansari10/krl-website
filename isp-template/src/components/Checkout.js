@@ -26,10 +26,10 @@ function CheckoutProduct({ id, title, image, price }) {
                                 <div className="mt-8">
                                     <div className="mt-6 flex space-x-4">
                                         <input className='border rounded py-1 px-4' type='text' placeholder='name' />
-                                        <input className='border rounded py-1 px-4' type='text' placeholder='Address' />
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='Designation' />
                                     </div>
                                     <div className="mt-6 flex space-x-4">
-                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='P.no' />
                                         <input className='border rounded py-1 px-4' type='text' placeholder='name' />
                                     </div>
                                     <div className="mt-6 flex space-x-4">

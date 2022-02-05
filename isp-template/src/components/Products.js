@@ -12,7 +12,7 @@ function Products() {
                         <img src="https://www.pngmart.com/files/21/Fridge-Transparent-Background.png" alt />
                     </div>
                     <div className="py-4 px-4 bg-white">
-                        <Link to='/productlist/updated'>
+                        <Link to='/productlist/Fridge'>
                             <span className="flex items-center justify-center mt-4 w-full bg-indigo-500 hover:bg-indigo-600  text-white py-1 rounded">
                                 <button className="font-semibold text-gray-50">Fridge</button>
                             </span>
@@ -24,9 +24,12 @@ function Products() {
                         <img src="https://www.pngmart.com/files/6/Washing-Machine-PNG-Free-Download.png" alt />
                     </div>
                     <div className="py-4 px-4 bg-white">
-                        <span className="flex items-center justify-center mt-4 w-full bg-indigo-500 hover:bg-indigo-600   py-1 rounded">
-                            <button className="font-semibold text-gray-50">Washing Machine</button>
-                        </span>
+                        <Link to='/productlist/Washing Machine'>
+                            <span className="flex items-center justify-center mt-4 w-full bg-indigo-500 hover:bg-indigo-600   py-1 rounded">
+                                <button className="font-semibold text-gray-50">Washing Machine</button>
+                            </span>
+                        </Link>
+
                     </div>
                 </div>
                 <div className="max-w-xs rounded-md overflow-hidden shadow-lg  cursor-pointer">
