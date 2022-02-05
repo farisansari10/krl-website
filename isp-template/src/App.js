@@ -19,9 +19,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route path='/product' element={<Products />} />
+          <Route path='/product/:category' element={<Products />} />
           <Route path='/productlist/:subCategory' element={<ProductList />} />
-          <Route path='/fridges' element={<ProductDetail />} />
+          <Route path='/view-detail/:index' element={<ProductDetail />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/userinfo' element={<ShowUserInfo />} />
         </Routes>

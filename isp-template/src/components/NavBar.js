@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 function NavBar() {
-    const cart = useSelector((state) => state);
+    const count = useSelector((state) => state.cartReducer.totalCount);
     const dispatch = useDispatch();
 
     return (
@@ -24,7 +24,7 @@ function NavBar() {
                         <Link to='/checkout'>
                             <button>
                                 <FontAwesomeIcon icon={faShoppingCart} className='text-gray-700 text-lg cursor-pointer' />
-                                <span className='text-lg ml-2'>{cart.length}</span>
+                                <span className='text-lg ml-2'>{count}</span>
                             </button>
                         </Link>
                     </ul>

@@ -2,13 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
-function CheckoutProduct({ id, title, image, price }) {
-    const cart = useSelector((state) => state);
+function CheckoutProduct() {
+    const cart = useSelector((state) => state.cartReducer);
     const dispatch = useDispatch();
-    const addition = (acc, currentvalue) => {
-        return acc + currentvalue.price * currentvalue.quantity
-    }
-    const total = cart.reduce(addition, 0);
 
     return (
 
@@ -56,10 +52,10 @@ function CheckoutProduct({ id, title, image, price }) {
                             <div className="flex justify-center lg:justify-end">
                                 <div className="border rounded-md max-w-md w-full px-4 py-3">
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-gray-700 font-medium">Order total {cart.length}</h3>
+                                        <h3 className="text-gray-700 font-medium">Order total {cart.totalCount}</h3>
                                     </div>
                                     {
-                                        cart.map((item) => {
+                                        cart.items.length > 0 && cart.items.map((item) => {
                                             return (
                                                 <div className="flex justify-between mt-6">
                                                     <div className="flex">
@@ -67,7 +63,7 @@ function CheckoutProduct({ id, title, image, price }) {
                                                         <div className="mx-3">
                                                             <h3 className="text-sm text-gray-600">{item.name}</h3>
                                                             <div className="flex items-center mt-2">
-                                                                <button onClick={() => dispatch({ type: "REMOVE", payload: item })} className="text-white rounded px-5 py-1 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:text-gray-600">
+                                                                <button className="text-white rounded px-5 py-1 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:text-gray-600">
                                                                     Remove
                                                                 </button>
                                                             </div>
