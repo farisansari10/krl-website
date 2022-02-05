@@ -1,61 +1,85 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
-
-function Checkout() {
+function CheckoutProduct({ id, title, image, price }) {
     const cart = useSelector((state) => state);
     const dispatch = useDispatch();
     const addition = (acc, currentvalue) => {
         return acc + currentvalue.price * currentvalue.quantity
     }
     const total = cart.reduce(addition, 0);
+
     return (
-        <div className="bg-gray-100">
-            <div className="container mx-auto mt-10">
-                <div className="flex shadow-md my-10">
-                    <div className="w-3/4 bg-white px-10 py-10">
-                        <div className="flex justify-between border-b pb-8">
-                            <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-                            <h2 className="font-semibold text-2xl">{cart.length}</h2>
-                        </div>
-                        <div className="flex mt-10 mb-5">
-                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                        </div>
-                        {
-                            cart.map((item) => {
-                                return (
-                                    <div key={item.id} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                                        <div className="flex w-2/5"> {/* product */}
-                                            <div className="w-20">
-                                                <img className="h-24" src={item.image} alt />
-                                            </div>
-                                            <div className="flex flex-col justify-between ml-4 ">
-                                                <span className="font-bold text-sm">{item.name}</span>
-                                                <span className="text-red-500 text-xs">{item.price}</span>
-                                                <button onClick={() => dispatch({ type: "REMOVE", payload: item })} className="font-semibold bg-indigo-500 py-2 rounded text-white hover:text-red-500 text-xs">Remove</button>
-                                            </div>
-                                        </div>
+
+        <div className="bg-white">
+            <div className="container mx-auto px-6 py-3">
+                <div className="flex items-center justify-between">
+                </div>
+            </div>
+            <div className="my-8">
+                <div className="container mx-auto px-6">
+                    <h3 className="text-gray-700 text-2xl font-medium">Checkout</h3>
+                    <div className="flex flex-col lg:flex-row mt-8">
+                        <div className="w-full lg:w-1/2 order-2">
+                            <form className="mt-8 lg:w-3/4">
+                                <div className="mt-8">
+                                    <div className="mt-6 flex space-x-4">
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='Address' />
                                     </div>
-                                )
-                            })
-                        }
-                        <a href="#" className="flex font-semibold text-indigo-600 text-sm mt-10">
-                            <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>
-                            Continue Shopping
-                        </a>
-                    </div>
-                    <div id="summary" className="w-1/4 px-8 py-10">
-                        <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                        <div className="flex justify-between mt-10 mb-5">
-                            <span className="font-semibold text-sm uppercase">{cart.length} Items</span>
-                            <span className="font-semibold text-sm">$ {total}</span>
+                                    <div className="mt-6 flex space-x-4">
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                    </div>
+                                    <div className="mt-6 flex space-x-4">
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                        <input className='border rounded py-1 px-4' type='text' placeholder='name' />
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-between mt-8">
+                                    <button className="flex items-center text-gray-700 text-sm font-medium rounded hover:underline focus:outline-none">
+                                        <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" stroke="currentColor"><path d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
+                                        <span className="mx-2">Back step</span>
+                                    </button>
+                                    <Link to='/userinfo'>
+                                        <button className="flex items-center px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                                            <span>Checkout</span>
+                                            <svg className="h-5 w-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                        </button>
+                                    </Link>
+
+                                </div>
+                            </form>
                         </div>
-                        <div className="border-t mt-8">
-                            <div className="flex font-semibold justify-between py-6 text-sm uppercase">
-                                <span>Total cost</span>
-                                <span>{total}</span>
+                        <div className="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
+                            <div className="flex justify-center lg:justify-end">
+                                <div className="border rounded-md max-w-md w-full px-4 py-3">
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="text-gray-700 font-medium">Order total {cart.length}</h3>
+                                    </div>
+                                    {
+                                        cart.map((item) => {
+                                            return (
+                                                <div className="flex justify-between mt-6">
+                                                    <div className="flex">
+                                                        <img className="h-20 w-20 object-cover rounded" src={item.image} alt />
+                                                        <div className="mx-3">
+                                                            <h3 className="text-sm text-gray-600">{item.name}</h3>
+                                                            <div className="flex items-center mt-2">
+                                                                <button onClick={() => dispatch({ type: "REMOVE", payload: item })} className="text-white rounded px-5 py-1 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:text-gray-600">
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+
+                                </div>
                             </div>
-                            <button className="bg-indigo-500 hover:bg-indigo-600 py-3 font-semibold rounded text-sm text-white uppercase w-full">Checkout</button>
                         </div>
                     </div>
                 </div>
@@ -66,4 +90,4 @@ function Checkout() {
     )
 }
 
-export default Checkout;
+export default CheckoutProduct;
