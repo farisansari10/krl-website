@@ -13,7 +13,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 let newestSubtotalCount = state.totalCount + 1;
                 return { ...state, items: [...state.items, { ...newItem }], totalCount: newestSubtotalCount }
             } else {
-                let newTotalCount = state.totalCount;
                 newitem = state.items.map(element => {
                     if (element.name === action.payload.name) {
                         element.count += 1;
@@ -22,9 +21,9 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                     return element;
                 });
             }
-            // let newTotalCount = state.items.reduce((acc, element) => {
-            //     return acc =  acc + element.count
-            // }, 0);
+            let newTotalCount = newItem.reduce((acc, element) => {
+                return acc = acc + element.count
+            }, 0);
             return { ...state, items: [...newItem], totalCount: newTotalCount }
         case "INCREASE_ITEM":
             let newIncreaseItem = state.element.map(element => {
@@ -49,6 +48,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return { ...state, items: [...tempArr], totalCount: newTotalCountDec }
         case "REMOVE_ITEM":
             return { ...state, errorMsg: action.payload }
+        case "RESET_CART":
+            return { ...state, items: [], totalCount: 0 }
         default:
             return state;
     }

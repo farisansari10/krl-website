@@ -11,8 +11,8 @@ const getOrders = async (req, res) => {
 }
 
 const storeOrder = async (req, res) => {
-    const { name, email, cnic, orderedItems } = req.body;
-    const newOrder = new Order({ name, email, cnic, orderedItems });
+    const { name, email, cnic, phoneNo, designation, address, orderedItems } = req.body;
+    const newOrder = new Order({ name, email, cnic, phoneNo, designation, address, orderedItems });
     try {
         await newOrder.save(error => {
             if (error) throw error.message;
