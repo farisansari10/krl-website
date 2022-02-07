@@ -83,7 +83,7 @@ function CheckoutProduct() {
                                                         <div className="mx-3">
                                                             <h3 className="text-sm text-gray-600">{item.name}</h3>
                                                             <div className="flex items-center mt-2">
-                                                                <button className="text-white rounded px-5 py-1 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:text-gray-600">
+                                                                <button onClick={() => dispatch({ type: "REMOVE_ITEM", payload: item._id })} className="text-white rounded px-5 py-1 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:text-gray-600">
                                                                     Remove
                                                                 </button>
                                                             </div>

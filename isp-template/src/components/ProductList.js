@@ -27,7 +27,7 @@ function ProductList() {
 
     return (
         <div className='py-12'>
-            <p className='text-4xl font-semibold text-center'>REFRIGERATOR</p>
+            <p className='text-4xl font-semibold text-center'>{subCategory}</p>
             <div className="px-10 py-20 bg-white grid gap-10 lg:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2">
                 {
                     products && products.length > 0 && products.map((item, index) => {

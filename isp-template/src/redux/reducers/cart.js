@@ -47,7 +47,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             }, 0)
             return { ...state, items: [...tempArr], totalCount: newTotalCountDec }
         case "REMOVE_ITEM":
-            return { ...state, errorMsg: action.payload }
+            const newCart = state.items.filter(item => item._id !== action.payload);
+            return { ...state, items: [...newCart] }
         case "RESET_CART":
             return { ...state, items: [], totalCount: 0 }
         default:
