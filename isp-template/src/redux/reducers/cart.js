@@ -13,7 +13,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 let newestSubtotalCount = state.totalCount + 1;
                 return { ...state, items: [...state.items, { ...newItem }], totalCount: newestSubtotalCount }
             } else {
-                newitem = state.items.map(element => {
+                newItem = state.items.map(element => {
                     if (element.name === action.payload.name) {
                         element.count += 1;
                         newTotalCount += 1;
