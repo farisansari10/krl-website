@@ -11,6 +11,8 @@ import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import Checkout from './components/Checkout';
 import ShowUserInfo from './components/ShowUserInfo';
+import AdminUsers from './Admin/AdminUsers';
+import AdminAddProduct from './Admin/AdminAddProduct';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path='/view-detail/:index' element={<ProductDetail />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/userinfo' element={<ShowUserInfo />} />
+          <Route path='/adminusers' element={<AdminUsers />} />
+          <Route path='/adminaddproduct' element={<AdminAddProduct />} />
         </Routes>
       </div>
     </BrowserRouter>
