@@ -19,7 +19,17 @@ app.use('/orders', ordersRoutes);
 app.use("/static", express.static(path.join(__dirname + '/public')));
 
 const CONNECTION_URL = 'mongodb+srv://faris:click@krlf-website-cluster.rfkjr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+// adding port number
 const PORT = process.env.PORT || 4000;
+
+// product Build
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+    app.use(express.static("../isp-template/build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname + "/isp-template/build/index.html"));
+    });
+}
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
